@@ -7,6 +7,8 @@
 - 利用脚手架koa-generator快速搭建
 - 采用新一代的 Web 开发框架—— Koa2 ——更小、更富有表现力、更健壮
 - 结合 async await (ES6/7) 语句中转中间件控制权，解决回调地狱问题
+- ui框架：http://amazeui.org/getting-started/layouts
+
 
 ## 技术点
 - nodejs
