@@ -1,0 +1,18 @@
+/* 覆盖文件 */
+.am-g {
+  margin: 10px 0;
+}
+
+/* 自增 */
+.t-c {
+  text-align: center;
+}
+.logo {
+  height: 45%;
+}
+
+.form-content{
+  /* margin: 20px auto 0 ; */
+  padding:20px;
+  max-width: 800px;
+}

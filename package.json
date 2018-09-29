@@ -10,16 +10,21 @@
   },
   "dependencies": {
     "debug": "^2.6.3",
+    "ip": "^1.1.5",
     "koa": "^2.2.0",
     "koa-bodyparser": "^3.2.0",
     "koa-convert": "^1.2.0",
     "koa-json": "^2.0.2",
+    "koa-nunjucks-2": "^3.0.2",
     "koa-router": "^7.1.1",
     "koa-static": "^3.0.0",
     "koa-views": "^5.2.1",
-    "ip": "^1.1.5",
-    "koa-nunjucks-2": "^3.0.2",
-    "log4js": "^3.0.5"
+    "log4js": "^3.0.5",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "mongoose": "^5.2.7",
+    "mongoose-materialized": "^0.2.0",
+    "mongoose-paginate": "^5.0.3"
   },
   "devDependencies": {
     "nodemon": "^1.8.1"
