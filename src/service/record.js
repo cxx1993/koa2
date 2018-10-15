@@ -78,8 +78,23 @@ module.exports = {
         .catch(res => reject(0));
     });
   },
+  // 查找多个by 参数
+  findMutiByParams(params) {
+    return new Promise((resolve, reject) => {
+      Record.find(params)
+        .then(res => resolve(res))
+        .catch(res => reject(0));
+    });
+  },
   deleteOneById() {},
   deletes() {},
-  addOne() {},
+  // 新增一条数据
+  addOne(params) {
+    return new Promise((resolve, reject) => {
+      Record.create(params)
+        .then(res => resolve({ code: 1, res: res }))
+        .catch(err => reject({ code: 0, err: err }));
+    });
+  },
   updateOneById() {}
 };

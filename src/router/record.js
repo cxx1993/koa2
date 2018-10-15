@@ -7,7 +7,14 @@ var router = new Router({
 // 项目列表页 list
 router.get("/", controller.view_index);
 // 跳转至au页
-router.get("/add", controller.view_au);
+router.all("/add", controller.view_au);
+// 新增一条数据
+router.post("/oooo", controller.add);
+//
+
+// ====json请求====
+// 模糊查询多条数据by name
+// router.post('/find/name', controller.findByName);
 
 // // 增加
 // // 一条数据

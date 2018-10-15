@@ -2,6 +2,9 @@
 const service = require("../service/record");
 const static = require("../utils/static");
 const format = require("../utils/format");
+const moment = require("moment");
+
+const { formatCode } = format;
 
 module.exports = {
   /* record index
@@ -14,7 +17,8 @@ module.exports = {
     let list = await service.list({
       page
     });
-    let count = await service.count().length;
+    let count = await service.count();
+    count = count.length;
     let currentPage = page;
 
     limit = static.list.limit;
@@ -35,9 +39,18 @@ module.exports = {
   },
   // 定位至新增编辑页面
   view_au: async function(ctx, next) {
+    const { t } = ctx.query;
+    let a = formatCode(t);
     await ctx.render("admin/record/au", {
       title: "新增记录",
-      list: [1, 2, 3]
+      diver: {
+        message: formatCode(t)
+      }
     });
+  },
+  add: async function(ctx, next) {
+    let { balance, type, content } = ctx.request.body;
+    let add = await service.addOne({ balance, content });
+    ctx.response.redirect("/record/add?t=a1");
   }
 };
