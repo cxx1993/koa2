@@ -4,7 +4,9 @@
  */
 const moment = require("moment");
 const _ = require("lodash");
+const static = require("./static");
 
+const { res_code } = static;
 module.exports = {
   /**
    * 转换list里的date格式的数据
@@ -21,5 +23,19 @@ module.exports = {
         return v;
       }
     });
+  },
+  formatCode(code) {
+    if (!code) {
+      return "";
+    }
+    let i = res_code.length;
+    for (let i = 0, len = res_code.length; i < len; i++) {
+      // ...
+      if (res_code[i].key === code) {
+        return res_code[i].value;
+      }
+    }
+
+    return "";
   }
 };
