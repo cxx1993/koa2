@@ -1,0 +1,30 @@
+.autoComplete {
+  position: fixed;
+  top: 100px;
+  left: 300px;
+  color: #5c5c5c;
+  max-width: 400px;
+}
+
+.autoComplete ul {
+  min-width: 200px;
+  border: 1px solid #eee;
+  margin: 0;
+  border-radius: 5px;
+  padding: 0;
+  background: white;
+}
+.autoComplete ul li {
+  cursor: pointer;
+  font-size: 14px;
+  padding: 7px 15px;
+  border-bottom: 1px solid #eee;
+  list-style: none;
+}
+.autoComplete ul li:last-child {
+  border-bottom: none;
+}
+.autoComplete ul li.empty {
+  cursor: no-drop;
+  color: #ccc8c8;
+}
