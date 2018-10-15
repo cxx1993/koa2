@@ -1,0 +1,64 @@
+ {% extends "../../common/layout.html" %} {% block head %}
+<link rel="stylesheet" href='https://at.alicdn.com/t/font_789568_rkm2ot5lezm.css' />
+<link rel="stylesheet" href='/css/classify/show.css' /> {% endblock %}{% block body %}
+
+
+<div class="am-g" id="show">
+    <!--  -->
+    <div id="alert" class="hide"></div>
+    <div class="am-u-sm-12">
+        <ul id="classifyShowList" class="am-avg-sm-3 am-avg-md-4 am-avg-lg-5 am-thumbnails">
+            {% for item in list %}
+
+            <li>
+                <i data-st="{{item.stName}}" class="iconfont i-icon-{{item.stName}}"></i>
+                <span>{{item.name}}</span>
+            </li>
+
+
+            {% endfor %}
+        </ul>
+    </div>
+
+
+    <div style="height: 1px; opacity: 0;">
+        <input id="foo" value="">
+        <button class="btn" data-clipboard-target="#foo">
+            click！
+        </button>
+    </div>
+
+
+
+
+
+</div>
+{% endblock %} {% block script %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+<script>
+    $(function () {
+        var clipboard = new ClipboardJS('.btn');
+
+        clipboard.on('success', function (e) {
+            // console.info('Action:', e.action);
+            // console.info('Text:', e.text);
+            // console.info('Trigger:', e.trigger);
+            $("#alert").hide().text('已成功复制到剪切板!').fadeIn('fast')
+                .delay(800).fadeOut()
+            e.clearSelection();
+        });
+
+        clipboard.on('error', function (e) {
+            $("#alert").hide().text('已成功复制到剪切板!').fadeIn('fast')
+                .delay(800).fadeOut()
+        });
+
+        $("#classifyShowList i").click(function () {
+            $("#foo").val($(this).attr("data-st"))
+            $(".btn").trigger("click")
+        })
+
+    })
+
+
+</script> {% endblock %}

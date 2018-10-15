@@ -1,0 +1,39 @@
+<div class="am-cf">
+    共 {{count}} 条记录
+    <div class="am-fr">
+        <ul class="am-pagination">
+            {% if currentPage==1 %}
+            <li class="am-disabled">
+                <a href="javascript:;">«</a>
+            </li> {% else %}
+            <li>
+                <a href="{{url}}?page=1">«</a>
+            </li> 
+            <!--  -->
+            {% endif %}
+            {% set start = currentPage+1 %}
+            {% for i in range(start-2, start+3) -%}
+            {% if (i>0) and (i<=totalPage) %}
+                {% if i==currentPage %}
+                <li class="am-active">
+                    <a href="{{url}}?page={{i}}">{{i}}</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{{url}}?page={{i}}">{{i}}</a>
+                </li>
+                {% endif %} 
+            {% endif %} 
+            {%- endfor %}
+
+            <!--  -->
+            {% if 1>(totalPage-currentPage) %}
+            <li class="am-disabled">
+                <a href="javascript:;">»</a>
+            </li> {% else %}
+            <li>
+                <a href="{{url}}?page={{totalPage}}">»</a>
+            </li> {% endif %}
+        </ul>
+    </div>
+</div>

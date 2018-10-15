@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/amaze/css/admin.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_789568_rkm2ot5lezm.css">
-    
+
     <!--[if lte IE 9]>
     <p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
     以获得更好的体验！</p>
@@ -33,14 +33,14 @@
         <div class="admin-content">
             <div class="admin-content-body">
                 <!-- <div class="am-g"> -->
-                    <!-- <div class="am-u-sm-12 am-u-sm-centered"> -->
-                        {% block body %} {% endblock %}
-                    <!-- </div> -->
+                <!-- <div class="am-u-sm-12 am-u-sm-centered"> -->
+                {% block body %} {% endblock %}
+                <!-- </div> -->
 
                 <!-- </div> -->
 
             </div>
-            {% include "./footer.html" %} {% block content %} {% endblock %}
+            {% include "./footer.html" %} {% include "./model.html" %} {% block content %} {% endblock %}
         </div>
 
     </div>
@@ -55,10 +55,17 @@
     <![endif]-->
 
     <!--[if (gte IE 9)|!(IE)]><!-->
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--<![endif]-->
     <script src="/amaze/js/amazeui.min.js"></script>
     <script src="/amaze/js/app.js"></script>
+
+    <script>
+        // 页面提示
+        const diver_messaege = "{{diver.message}}"
+    </script>
+    <script src="/js/utils.js"></script> 
+    <script src="/js/common.js"></script> {% block script %} {% endblock %}
 </body>
 
 </html>

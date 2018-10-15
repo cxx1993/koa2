@@ -1,9 +1,19 @@
-{% extends "common/layout.html" %} {% block body %} {% set url = "/record" %} {% include "./search.html" %}
+{% extends "common/layout.html" %}{% block head %}
+<link rel="stylesheet" href='https://at.alicdn.com/t/font_789568_rkm2ot5lezm.css' />
+<style>
+#recordTable .icon small{
+    margin-left:5px;
+    font-size:12px;
+    color:#999;
+}
+</style>
+{% endblock %}{% block body %} {% set url = "/record" %} {% include "./search.html" %}
 
 <div class="am-g">
+    <!--  -->
     <div class="am-u-sm-12">
         <form class="am-form">
-            <table class="am-table am-table-striped am-table-hover table-main">
+            <table id="recordTable" class="am-table am-table-striped am-table-hover table-main">
                 <thead>
                     <tr>
                         <th class="table-check">
@@ -32,7 +42,9 @@
                         </td>
 
                         <td>{{item.username}}</td>
-                        <td>{{item.stName}}</td>
+                        <td class="icon">
+                            <i class="iconfont i-icon-{{item.stName}}"></i><small>{{item.stName}}</small>
+                        </td>
                         <td>{{item.createDate}}</td>
                         <!-- <td>{{item.content}}</td> -->
                         <td>
@@ -55,7 +67,7 @@
                     {% endfor %}
                 </tbody>
             </table>
-            {% include "../../common/tFooter.html" %}
+            {% include "../../common/page.html" %}
         </form>
     </div>
 
