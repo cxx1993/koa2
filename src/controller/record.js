@@ -51,6 +51,7 @@ module.exports = {
   add: async function(ctx, next) {
     let { balance, type, content } = ctx.request.body;
     let add = await service.addOne({ balance, content });
-    ctx.response.redirect("/record/add?t=a1");
+    let t = add.code === 1 ? "a1" : "a2";
+    ctx.response.redirect(`/record/add?t=${t}`);
   }
 };
